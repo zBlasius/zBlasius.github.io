@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gustavo Blasius Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* VOICE work: a developer's calling card, confident and exact
+   IDEA a transit line map: the projects are lines, the services are stations
+   PICTURE the SubjectsEasy video pipeline drawn as a route, a token travelling upload to playback
+   COLOUR deep green #00463c first screen, white below, lime-white #e6f5c8 signal, coral #ff6f59 accent
+   TYPE Inter Tight 700 for display + Inter for text
+   LAYOUT laptop: name and pitch across the top, pipeline full width beneath; phone: stacked, route turns vertical */
+:root{color-scheme:light dark;--bg:light-dark(#ffffff,#0c1714);--ink:light-dark(#0e1b18,#e8f1ee);--mute:light-dark(#4b5c57,#9fb3ad);--line:light-dark(#d9e3df,#22332e);--card:light-dark(#f3f7f5,#12211d);--g:#00463c;--g2:#00362e;--lime:#e6f5c8;--coral:#ff6f59;--chip:light-dark(#e6f5c8,#1d3a2f);--chipink:light-dark(#00463c,#cfeaa8)}
+:root[data-theme=light]{color-scheme:light}:root[data-theme=dark]{color-scheme:dark}
+*{box-sizing:border-box;min-width:0}
+html{scroll-padding-top:72px;scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 Inter,system-ui,sans-serif;overflow-x:clip}
+a{color:inherit}
+h1,h2,h3{font-family:"Inter Tight",Inter,sans-serif;letter-spacing:-.02em;line-height:1.05;margin:0;text-wrap:balance}
+.wrap{max-width:1240px;margin:0 auto}
+.band{padding-block:clamp(36px,5vw,72px);padding-left:max(5vw,16px);padding-right:max(5vw,16px)}
+nav{position:sticky;top:0;z-index:5;background:var(--g);color:#fff;padding:12px max(5vw,16px);border-bottom:1px solid #0b5a4e}
+nav .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center}
+nav b{font-family:"Inter Tight";font-size:18px;margin-right:auto}
+nav a{text-decoration:none;font-size:15px;opacity:.85;padding:6px 0}
+nav a:hover,nav a:focus-visible{opacity:1;text-decoration:underline}
+.hero{background:var(--g);color:#fff;padding-top:clamp(28px,4vw,56px)}
+.top{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px 48px;align-items:end}
+.hero h1{font-size:clamp(40px,6vw,72px)}
+.hero h1 span{display:block;font-size:clamp(20px,2.4vw,28px);font-weight:600;color:var(--lime);margin-top:12px;letter-spacing:-.01em}
+.pitch{font-size:17px;max-width:60ch;color:#d4e6e0;margin:0}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;font-weight:600;text-decoration:none;font-size:15px}
+.btn.p{background:var(--lime);color:var(--g)}
+.btn.s{border:1px solid #5f8f84;color:#fff}
+.btn:hover{filter:brightness(1.07)}.btn:focus-visible{outline:3px solid var(--coral);outline-offset:2px}
+.facts{display:grid;grid-template-columns:repeat(auto-fit,minmax(9em,1fr));gap:16px;margin:0}
+.facts div{border-top:1px solid #3e7368;padding-top:8px}
+.facts dt{font-size:13px;color:#a9c7bf}.facts dd{margin:2px 0 0;font-weight:600;font-size:16px}
+.fig{position:relative;height:280px;margin-top:36px;background:var(--g2);border-radius:14px}
+.fig>svg{position:absolute;inset:0;width:100%;height:100%}
+.figcap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;color:#a9c7bf;font-size:14px;margin:12px 0 0}
+.figcap a{color:var(--lime)}
+.sec-h{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.2fr);gap:12px 48px;align-items:end;margin-bottom:32px}
+.sec-h h2{font-size:clamp(32px,4vw,44px)}
+.sec-h p{margin:0;color:var(--mute);max-width:62ch}
+.projects{display:grid;gap:20px}
+.proj{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.35fr);gap:20px 40px;padding:28px;border:1px solid var(--line);border-radius:14px;background:var(--card)}
+.proj .tag{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--mute);margin-bottom:10px}
+.dot{width:14px;height:14px;border-radius:50%;flex:none;border:3px solid currentColor;background:var(--bg)}
+.proj h3{font-size:30px;margin-bottom:10px}
+.proj p{margin:0 0 14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;list-style:none;padding:0;margin:0 0 16px}
+.chips li{background:var(--chip);color:var(--chipink);font-size:13px;font-weight:600;padding:4px 10px;border-radius:999px}
+.links{display:flex;flex-wrap:wrap;gap:8px 20px;font-weight:600;font-size:15px}
+.links a{text-decoration-thickness:2px;text-underline-offset:4px;text-decoration-color:var(--coral);padding:8px 0}
+.proj ul.hl{margin:0;padding:0;list-style:none;display:grid;gap:12px}
+.hl li{padding-left:22px;position:relative}
+.hl li::before{content:"";position:absolute;left:0;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--coral)}
+.hl b{font-weight:600}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px}
+.alt{background:var(--card);border-block:1px solid var(--line)}
+.tl{list-style:none;margin:0;padding:0;border-left:3px solid var(--g);margin-left:6px}
+:root[data-theme=dark] .tl{border-color:#2f7a6b}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]) .tl{border-color:#2f7a6b}}
+.tl li{position:relative;padding:0 0 26px 26px}
+.tl li::before{content:"";position:absolute;left:-10px;top:4px;width:17px;height:17px;border-radius:50%;background:var(--bg);border:3px solid var(--coral)}
+.tl h3{font-size:22px;margin-bottom:4px}
+.tl .w{color:var(--mute);font-size:15px;margin:0 0 6px}
+.tl p{margin:0}
+.skills{display:grid;grid-template-columns:repeat(auto-fit,minmax(15em,1fr));gap:16px}
+.sk{border-top:3px solid var(--g);padding-top:12px}
+:root[data-theme=dark] .sk{border-color:#2f7a6b}
+.sk h3{font-size:20px;margin-bottom:10px}
+.sk .chips{margin:0}
+.contact{background:var(--g);color:#fff}
+.contact .wrap{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:24px 48px;align-items:center}
+.contact h2{font-size:clamp(32px,4.4vw,52px)}
+.contact p{color:#d4e6e0;margin:12px 0 0;max-width:56ch}
+footer{background:var(--g2);color:#a9c7bf;font-size:14px;padding:16px max(5vw,16px)}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px}
+@media(max-width:900px){.proj{grid-template-columns:minmax(0,1fr)}.sec-h{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:720px){.top,.two,.contact .wrap{grid-template-columns:minmax(0,1fr)}.fig{height:520px}nav a.opt{display:none}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}#tok{display:none}}
+</style>
+</head>
+<body>
+<nav><div class="wrap"><b>Gustavo Blasius</b><a href="#projects">Projects</a><a href="#experience" class="opt">Experience</a><a href="#skills" class="opt">Skills</a><a href="#contact">Contact</a></div></nav>
+
+<header class="hero band">
+ <div class="wrap">
+  <div class="top">
+   <div>
+    <h1>Gustavo Blasius<span>Full-stack developer · TypeScript, React, Node.js, AWS</span></h1>
+   </div>
+   <div>
+    <p class="pitch">Four-plus years shipping web products, mostly in fintech. I like the parts of a system other people avoid: async pipelines, offline sync, and clean boundaries between modules. Now based in Dublin and studying computer science to understand the machine underneath.</p>
+    <div class="cta"><a class="btn p" href="#projects">See my projects</a><a class="btn s" href="https://github.com/zBlasius">GitHub ↗</a></div>
+   </div>
+  </div>
+  <div class="fig" id="fig" role="img" aria-label="SubjectsEasy video pipeline: browser upload to Node API, stored in S3, queued in SQS, transcoded to HLS by FFmpeg on ECS Fargate, back to S3 and streamed to the student's player"><svg id="pipe"></svg></div>
+  <p class="figcap"><span>How a lesson video travels through SubjectsEasy, my AWS e-learning platform.</span><a href="#p-subjects">Read the case study ↓</a></p>
+  <dl class="facts" style="margin-top:28px">
+   <div><dt>Experience</dt><dd>4+ years</dd></div>
+   <div><dt>Based in</dt><dd>Dublin, Ireland</dd></div>
+   <div><dt>Languages</dt><dd>English, Portuguese</dd></div>
+   <div><dt>Studying</dt><dd>CS, CCT College Dublin</dd></div>
+  </dl>
+ </div>
+</header>
+
+<section class="band" id="projects">
+ <div class="wrap">
+  <div class="sec-h"><h2>Selected projects</h2><p>Three things I built on my own time, each to go deeper on a different layer: cloud pipelines, mobile offline-first sync, and Java backend design. All the code is public.</p></div>
+  <div class="projects" id="plist"></div>
+ </div>
+</section>
+
+<section class="band alt" id="experience">
+ <div class="wrap two">
+  <div>
+   <div class="sec-h" style="grid-template-columns:1fr;margin-bottom:24px"><h2>Experience</h2></div>
+   <ol class="tl">
+    <li><h3>Klubi</h3><p class="w">Fintech (May 2024 - Oct 2024) · Full-stack development</p><p>Built and maintained product features across a TypeScript, React and Node.js stack.</p></li>
+    <li><h3>Clinicorp Solutions</h3><p class="w">Sass (Dez 2020 - May 2024) · Full-stack development</p><p>Worked across front end and back end, with exposure to Google Cloud: Cloud Functions, Datastore and BigQuery.</p></li>
+   </ol>
+  </div>
+  <div>
+   <div class="sec-h" style="grid-template-columns:1fr;margin-bottom:24px"><h2>Education</h2></div>
+   <ol class="tl">
+    <li><h3>Higher Diploma in Computer Science</h3><p class="w">CCT College Dublin · in progress</p><p>Going under the hood of how computers work, to make sharper calls on cost and technology choice.</p></li>
+    <li><h3>Bachelor's in Software Engineering</h3><p class="w">Completed</p><p>Capstone: PhysiLab2d, a 2D physics simulation tool.</p></li>
+   </ol>
+  </div>
+ </div>
+</section>
+
+<section class="band" id="skills">
+ <div class="wrap">
+  <div class="sec-h"><h2>Toolbox</h2><p>What I reach for day to day, and what I've used in production or in the projects above.</p></div>
+  <div class="skills" id="sklist"></div>
+ </div>
+</section>
+
+<section class="band contact" id="contact">
+ <div class="wrap">
+  <div><h2>Let's build something that holds up.</h2><p>I'm open to full-stack and back-end developer roles in Ireland and remote. The quickest way to see how I work is the code.</p></div>
+  <div class="cta" style="margin:0"><a class="btn p" href="https://github.com/zBlasius">github.com/zBlasius ↗</a></div>
+ </div>
+</section>
+<footer><div class="wrap"><span>© 2026 Gustavo Blasius</span><span>Dublin, Ireland</span></div></footer>
+
+<script>
+{
+const P=[
+ {id:'p-subjects',line:'#ff6f59',tag:'Cloud · AWS · full stack',name:'SubjectsEasy',
+  desc:'A video e-learning platform where teachers publish lessons and track each student\'s progress, and students watch and pick up where they left off.',
+  stack:['TypeScript','Node.js','Express','React','MongoDB','AWS S3','SQS','ECS Fargate','Lambda','FFmpeg','InversifyJS','Zod','Docker'],
+  hl:[['Async video pipeline.','Uploads land in S3 first, then a queue hands them to FFmpeg workers on ECS Fargate that cut HLS chunks, so playback streams like Netflix instead of downloading a whole file.'],
+      ['Clean Architecture + DDD.','Each module (course, user) has its own application, domain and repository layers wired through InversifyJS, and a mediator module handles cross-module use cases.'],
+      ['Production habits.','AWS SDK v3, CloudWatch logging, IAM scoped per service, and process.exitCode instead of process.exit() so worker logs are never truncated.']],
+  links:[['Live demo ↗','https://subjects-easy-rho.vercel.app/'],['Code ↗','https://github.com/zBlasius/subjects_easy']]},
+ {id:'p-hermes',line:'#e0a000',tag:'Mobile · offline-first',name:'Hermes',
+  desc:'A personal finance tracker for incomes, expenses and reports that keeps working with no connection and syncs when the phone is back online.',
+  stack:['React Native','Expo','TypeScript','Node.js','PostgreSQL','SQLite','RabbitMQ','NativeWind','Docker'],
+  hl:[['Offline-first by design.','Every write goes to SQLite on the device first; a RabbitMQ-backed sync moves it to PostgreSQL once the network returns.'],
+      ['Real sign-in.','Google and Apple sign-in on the server with JWT sessions, tokens kept in the device keychain.'],
+      ['Imports bank statements.','Revolut statements can be imported to fill in transactions automatically.']],
+  links:[['Code ↗','https://github.com/zBlasius/hermes']]},
+ {id:'p-ticket',line:'#4fb3e8',tag:'Back end · Java',name:'Ticket API',
+  desc:'A REST API for a cinema box office: movies, authors, screening rooms and users, with sessions, tickets and payments coming next. Built to learn Java and Spring properly.',
+  stack:['Java 17','Spring Boot','Spring Data JPA','MySQL','Testcontainers','Docker Compose','Maven'],
+  hl:[['Ports and adapters.','The domain is plain Java with no Spring or JPA inside it; use cases depend on repository ports, and JPA adapters implement them.'],
+      ['Errors as HTTP.','Domain exceptions such as RoomNameAlreadyExists map to clear HTTP responses in one exception handler.'],
+      ['Tested against a real database.','Integration tests spin up MySQL with Testcontainers.']],
+  links:[['Code ↗','https://github.com/zBlasius/ticket_api']]}
+];
+const S=[
+ ['Languages',['TypeScript','JavaScript','Java','SQL']],
+ ['Front end & mobile',['React','React Native','Expo','PrimeReact','Tailwind / NativeWind']],
+ ['Back end',['Node.js','Express','Spring Boot','REST APIs','InversifyJS','Zod']],
+ ['Cloud',['AWS S3','SQS','Lambda','ECS Fargate','IAM','CloudWatch','Google Cloud Functions','BigQuery']],
+ ['Data',['PostgreSQL','MySQL','MongoDB','SQLite','Datastore','RabbitMQ']],
+ ['Practices',['Clean Architecture','Domain-Driven Design','Docker','Testcontainers','Git']]
+];
+const esc=t=>String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+document.getElementById('plist').innerHTML=P.map(p=>`<article class="proj" id="${p.id}">
+ <div><div class="tag"><span class="dot" style="color:${p.line}"></span>${esc(p.tag)}</div><h3>${esc(p.name)}</h3><p>${esc(p.desc)}</p>
+ <ul class="chips">${p.stack.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>
+ <div class="links">${p.links.map(([t,u])=>`<a href="${u}">${esc(t)}</a>`).join('')}</div></div>
+ <ul class="hl">${p.hl.map(([b,t])=>`<li><b>${esc(b)}</b> ${esc(t)}</li>`).join('')}</ul></article>`).join('');
+document.getElementById('sklist').innerHTML=S.map(([h,l])=>`<div class="sk"><h3>${esc(h)}</h3><ul class="chips">${l.map(s=>`<li>${esc(s)}</li>`).join('')}</ul></div>`).join('');
+
+const st=[['Browser','React upload'],['Node API','Express + Multer'],['Amazon S3','raw video'],['Amazon SQS','job queue'],['ECS Fargate','FFmpeg → HLS'],['Amazon S3','.m3u8 + chunks'],['Player','student streams']];
+const svg=document.getElementById('pipe'),fig=document.getElementById('fig');
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const draw=()=>{
+ const W=fig.clientWidth,H=fig.clientHeight,v=W<720,n=st.length;
+ let pts=[],out='';
+ if(!v){const m=Math.max(70,W*.07),y=H*.44;for(let i=0;i<n;i++)pts.push([m+(W-2*m)*i/(n-1),y]);}
+ else{const m=46,x=40;for(let i=0;i<n;i++)pts.push([x,m+(H-2*m)*i/(n-1)]);}
+ const d='M'+pts.map(p=>p.join(',')).join(' L');
+ out+=`<path d="${d}" fill="none" stroke="#0a5a4d" stroke-width="20" stroke-linecap="round"/>`;
+ out+=`<path d="${d}" fill="none" stroke="#ff6f59" stroke-width="10" stroke-linecap="round"/>`;
+ // async zone after S3 (index 2..4)
+ if(!v){const a=pts[2][0]+20,b=pts[4][0]+20;const a2=pts[2][0],b2=pts[4][0],yy=pts[0][1]+82;out+=`<path d="M${a2},${yy} H${b2}" stroke="#5f8f84" stroke-width="1.5" stroke-dasharray="4 5"/><text x="${(a2+b2)/2}" y="${yy+22}" text-anchor="middle" fill="#a9c7bf" font-size="13" font-family="Inter">asynchronous, off the request path</text>`;}
+ pts.forEach(([x,y],i)=>{
+  const big=i==0||i==n-1;
+  out+=`<circle cx="${x}" cy="${y}" r="${big?15:12}" fill="#00362e" stroke="#e6f5c8" stroke-width="${big?6:5}"/>`;
+  const [a,b]=st[i];
+  if(!v){const up=i%2==0,ty=up?y-48:y+42;
+   out+=`<text x="${x}" y="${ty}" text-anchor="middle" fill="#fff" font-size="15" font-weight="600" font-family="Inter">${a}</text><text x="${x}" y="${ty+18}" text-anchor="middle" fill="#a9c7bf" font-size="13" font-family="Inter">${b}</text>`;}
+  else out+=`<text x="${x+30}" y="${y-2}" fill="#fff" font-size="15" font-weight="600" font-family="Inter">${a}</text><text x="${x+30}" y="${y+16}" fill="#a9c7bf" font-size="13" font-family="Inter">${b}</text>`;
+ });
+ out+=`<g id="tok"><circle r="9" fill="#e6f5c8"/><circle r="4" fill="#00463c"/></g>`;
+ svg.innerHTML=out;
+ const path=svg.querySelector('path'),L=path.getTotalLength(),tok=svg.querySelector('#tok');
+ const place=t=>{const p=path.getPointAtLength(L*t);tok.setAttribute('transform',`translate(${p.x},${p.y})`)};
+ if(reduce){place(1);return}
+ cancelAnimationFrame(window.__raf);const t0=performance.now();
+ const step=now=>{const t=((now-t0)/7000)%1;place(t<.92?t/.92:1);window.__raf=requestAnimationFrame(step)};
+ window.__raf=requestAnimationFrame(step);
+};
+const ro=new ResizeObserver(draw);ro.observe(fig);
+}
+</script>
+</body>
+</html>
